@@ -15,14 +15,3 @@ export const getFilteredContcats = createSelector(
       : contacts;
   }
 );
-
-// export const getFilteredContcats = (state) => {
-//   const contacts = getContacts(state);
-//   const filter = getFilter(state);
-
-//   return filter
-//     ? contacts.filter((el) =>
-//         el.name.toLowerCase().includes(filter.toLowerCase())
-//       )
-//     : contacts;
-// };

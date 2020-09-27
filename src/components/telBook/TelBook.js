@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ContactList from "./telInput/ContactList";
 import { CSSTransition } from "react-transition-group";
-import { useDispatch, connect } from "react-redux";
+import { useDispatch, connect, useStore } from "react-redux";
 import Button from "@material-ui/core/Button";
 import FindInput from "./telInput/FindInput";
 import styles from "./telBook.module.css";
 import ContactForm from "./telInput/contactForm/ContactForm";
 import { telBookReducers } from "../../redux/telBookReducers";
-import telBookOperations from "../../redux/telBookOperations";
 import firebase from "../../firebase/config";
 import { getUserUid } from "./telBookSelectors";
 
 function TelBook({ uid }) {
+  const store = useStore();
   const dispatch = useDispatch();
   const {
-    actions: { filterContacts },
+    actions: { filterContacts, getContacts, logOut },
   } = telBookReducers;
-
+  const UserNickname = store.getState().user.nickname;
   const contactsShot = async () => {
     await firebase
       .firestore()
@@ -26,27 +26,28 @@ function TelBook({ uid }) {
           ...elem.data(),
           id: elem.id,
         }));
-        dispatch(telBookOperations.getContacts(data));
+        dispatch(getContacts(data));
       });
   };
-  contactsShot();
   useEffect(() => {
     contactsShot();
   }, []);
 
   const SignOut = async () => {
-    const SignOutData = firebase.auth().signOut();
-    console.log(SignOutData);
+    firebase.auth().signOut();
+    dispatch(logOut());
   };
 
   return (
     <>
       <CSSTransition timeout={500} classNames={styles} appear unmountOnExit in>
         <div>
-          <h2 className={styles.title}>Phonebook</h2>
           <Button variant="contained" color="primary" onClick={SignOut}>
             LogOut
           </Button>
+          <h2 className={styles.title}>hello, {UserNickname} </h2>
+
+          <h2 className={styles.title}>Phonebook</h2>
         </div>
       </CSSTransition>
       <ContactForm />

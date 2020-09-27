@@ -61,5 +61,8 @@ export const telBookReducers = createSlice({
         ...payload,
       },
     }),
+    logOut: (state, { type, payload }) => ({
+      ...initialState,
+    }),
   },
 });

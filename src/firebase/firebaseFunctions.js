@@ -1,9 +1,14 @@
 import firebase from "./config";
 
 export const signInWithEmailAndPassword = async ({ email, password }) => {
-  await firebase.auth().signInWithEmailAndPassword(email, password);
-  const user = await firebase.auth().currentUser;
-  console.log(user);
+  await firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .catch((error) => {
+      console.log(error.message);
+      const errorMessage = error.message;
+      return errorMessage;
+    });
 };
 
 export const createUserWithEmailAndPassword = async ({
@@ -16,5 +21,4 @@ export const createUserWithEmailAndPassword = async ({
   user.updateProfile({
     displayName: nickname,
   });
-  console.log(user);
 };

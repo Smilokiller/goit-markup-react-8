@@ -33,11 +33,11 @@ export const Login = () => {
     evt.preventDefault();
     const userInfo = { email, password };
     const user = { email, password };
-    console.log("user", user);
     signInWithEmailAndPassword(userInfo);
     dispatch(getUsers(user));
     setEmail("");
     setPassword("");
+    // console.log(signInWithEmailAndPassword());
   };
 
   return (
