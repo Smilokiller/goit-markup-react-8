@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/goit-markup-react-7/static/css/main.dab299de.chunk.css",
-    "main.js": "/goit-markup-react-7/static/js/main.370ce51e.chunk.js",
-    "main.js.map": "/goit-markup-react-7/static/js/main.370ce51e.chunk.js.map",
-    "runtime-main.js": "/goit-markup-react-7/static/js/runtime-main.ee3a602d.js",
-    "runtime-main.js.map": "/goit-markup-react-7/static/js/runtime-main.ee3a602d.js.map",
-    "static/js/2.3106bb22.chunk.js": "/goit-markup-react-7/static/js/2.3106bb22.chunk.js",
-    "static/js/2.3106bb22.chunk.js.map": "/goit-markup-react-7/static/js/2.3106bb22.chunk.js.map",
-    "index.html": "/goit-markup-react-7/index.html",
-    "precache-manifest.5bbecb7e31aedc5abcb08181084098d2.js": "/goit-markup-react-7/precache-manifest.5bbecb7e31aedc5abcb08181084098d2.js",
-    "service-worker.js": "/goit-markup-react-7/service-worker.js",
-    "static/css/main.dab299de.chunk.css.map": "/goit-markup-react-7/static/css/main.dab299de.chunk.css.map",
-    "static/js/2.3106bb22.chunk.js.LICENSE.txt": "/goit-markup-react-7/static/js/2.3106bb22.chunk.js.LICENSE.txt"
+    "main.css": "/goit-markup-react-8/static/css/main.dab299de.chunk.css",
+    "main.js": "/goit-markup-react-8/static/js/main.370ce51e.chunk.js",
+    "main.js.map": "/goit-markup-react-8/static/js/main.370ce51e.chunk.js.map",
+    "runtime-main.js": "/goit-markup-react-8/static/js/runtime-main.58ac0e4a.js",
+    "runtime-main.js.map": "/goit-markup-react-8/static/js/runtime-main.58ac0e4a.js.map",
+    "static/js/2.54c40d81.chunk.js": "/goit-markup-react-8/static/js/2.54c40d81.chunk.js",
+    "static/js/2.54c40d81.chunk.js.map": "/goit-markup-react-8/static/js/2.54c40d81.chunk.js.map",
+    "index.html": "/goit-markup-react-8/index.html",
+    "precache-manifest.1de2bee80ab140842cc0d2b29845edd5.js": "/goit-markup-react-8/precache-manifest.1de2bee80ab140842cc0d2b29845edd5.js",
+    "service-worker.js": "/goit-markup-react-8/service-worker.js",
+    "static/css/main.dab299de.chunk.css.map": "/goit-markup-react-8/static/css/main.dab299de.chunk.css.map",
+    "static/js/2.54c40d81.chunk.js.LICENSE.txt": "/goit-markup-react-8/static/js/2.54c40d81.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ee3a602d.js",
-    "static/js/2.3106bb22.chunk.js",
+    "static/js/runtime-main.58ac0e4a.js",
+    "static/js/2.54c40d81.chunk.js",
     "static/css/main.dab299de.chunk.css",
     "static/js/main.370ce51e.chunk.js"
   ]
