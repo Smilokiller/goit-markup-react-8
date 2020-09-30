@@ -38,6 +38,7 @@ export const telBookReducers = createSlice({
       },
     }),
     filterContacts: (state, { type, payload }) => ({
+      ...state,
       contacts: {
         ...state.contacts,
         filter: payload,
@@ -50,10 +51,12 @@ export const telBookReducers = createSlice({
     addSuccess: (state) => ({
       ...state,
       loading: false,
+      error: null,
     }),
-    addError: (state) => ({
+    addError: (state, { type, payload }) => ({
       ...state,
       loading: false,
+      error: payload,
     }),
     getUsers: (state, { type, payload }) => ({
       ...state,

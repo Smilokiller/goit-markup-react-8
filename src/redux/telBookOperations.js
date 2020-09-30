@@ -19,7 +19,6 @@ const addContact = (items) => (dispatch) => {
 };
 
 const getContacts = (data) => async (dispatch) => {
-  console.log("AAAAAAAAAA");
   const {
     actions: { getContacts, addRequest, addSuccess, addError },
   } = telBookReducers;

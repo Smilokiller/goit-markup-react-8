@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
+import { useDispatch, useStore } from "react-redux";
+
 import { makeStyles } from "@material-ui/core/styles";
 import BasicTextFields from "../basicTextFields/BasicTextFields";
 import styles from "../telBook/telBook.module.css";
-import { createUserWithEmailAndPassword } from "../../firebase/firebaseFunctions";
+import firebase from "../../firebase/config";
+import { telBookReducers } from "../../redux/telBookReducers";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -13,20 +17,43 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-export const Register = () => {
+export function Register() {
+  const {
+    actions: { addError },
+  } = telBookReducers;
+  const store = useStore();
+  const dispatch = useDispatch();
   const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const classes = useStyles();
 
-  const handleSubmit = (evt) => {
+  async function handleSubmit(evt) {
     evt.preventDefault();
-    const userInfo = { nickname, email, password };
-    createUserWithEmailAndPassword(userInfo);
+    const user = { nickname, email, password };
+    await createUserWithEmailAndPassword(user);
     setNickname("");
     setEmail("");
     setPassword("");
-  };
+  }
+
+  async function createUserWithEmailAndPassword({ email, password, nickname }) {
+    await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch((error) => {
+        dispatch(addError(error.message));
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        return errorMessage;
+      });
+    const user = await firebase.auth().currentUser;
+    user &&
+      user.updateProfile({
+        displayName: nickname,
+      });
+  }
+
   return (
     <>
       <h2 className={styles.title}>Register form</h2>
@@ -52,10 +79,13 @@ export const Register = () => {
           label={"Password"}
           handleChange={setPassword}
         />
+        {store.getState().error && (
+          <p className={styles.error}>{store.getState().error}</p>
+        )}
         <Button variant="contained" color="primary" type="input">
           Register
         </Button>
       </form>
     </>
   );
-};
+}

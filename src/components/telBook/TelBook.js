@@ -17,6 +17,7 @@ function TelBook({ uid }) {
     actions: { filterContacts, getContacts, logOut },
   } = telBookReducers;
   const UserNickname = store.getState().user.nickname;
+
   const contactsShot = async () => {
     await firebase
       .firestore()
